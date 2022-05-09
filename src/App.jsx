@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MusicTable from './Components/MusicTable/MusicTable';
+import NavigationBar from './Components/NavigationBar/NavigationBar';
 import axios from 'axios';
 
 
@@ -16,9 +17,21 @@ function App() {
     setSongs(response.data);
   }
 
+  async function createSong(newSong){
+    let response = await axios.post('http://127.0.0.1:8000/api/music/', newSong);
+    if(response.status === 201){
+      await getAllSongs();
+    }
+  }
+
   return (
     <div>
-      <MusicTable parentEntries={songs} />
+      <div>
+        <MusicTable parentEntries={songs} />
+      </div>
+      <div>
+        <NavigationBar addNewSong={createSong}/>
+      </div>
     </div>
   );
 }
