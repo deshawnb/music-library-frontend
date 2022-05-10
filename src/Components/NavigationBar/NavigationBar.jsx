@@ -33,7 +33,7 @@ const NavigationBar = (props) => {
             <input type='text' value={genre} onChange={(event) =>setGenre(event.target.value)}/>
             <label>Release Date</label>
             <input type='date' value={release_date} onChange={(event) =>setReleaseDate(event.target.value)}/>
-            <button className="button2" type="submit">Create</button>
+            <button type="submit">Add Song</button>
         </form>
     );
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MusicTable from './Components/MusicTable/MusicTable';
 import NavigationBar from './Components/NavigationBar/NavigationBar';
+import SearchBar from './Components/SearchBar/SearchBar';
 import axios from 'axios';
 
 
@@ -26,6 +27,9 @@ function App() {
 
   return (
     <div>
+      <div>
+        <SearchBar/>
+      </div>
       <div>
         <MusicTable parentEntries={songs} />
       </div>
